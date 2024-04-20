@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API call test</title>
+</head>
+<body style="background-color: #212121;color: white;">
+    <div class="container">
+  <h1>server testing.......</h1>
+  <div class="card">
+    <div class="card-body"></div>
+    <div class="extra-body"></div>
+  </div>
+</div>
+</body>
+<script>
+let ref = "http://localhost:4000/youtube"
+
+       let apiCall = new XMLHttpRequest();
+        apiCall.open('GET',ref)
+        apiCall.send();
+        apiCall.onreadystatechange = function(){
+        //console.log(apiCall.readyState);
+        if(apiCall.readyState === 4){
+     let data = apiCall.responseText
+      console.log(data);
+     let B = document.querySelector(".card-body")
+     B.innerHTML   = `<h2>Server response :: ${data}</h2>`
+        }
+    }
+</script>
+</html>
